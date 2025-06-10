@@ -75,7 +75,7 @@ async function main() {
         // 等待应用完成或需要重启
         while (app.isRunning() && !app.isRestartNeeded()) {
           // 记录当前状态
-          if (TimeUtils.getElapsedTime(app.lastStatusLogTime) > 60000) { // 每分钟记录一次状态
+          if (TimeUtils.getElapsedMs(app.lastStatusLogTime) > 60000) { // 每分钟记录一次状态
             logger.log('程序运行中...');
             app.lastStatusLogTime = TimeUtils.getCurrentTime();
           }

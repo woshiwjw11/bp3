@@ -46,6 +46,18 @@ class TimeUtils {
     
     return `${hours}小时${minutes}分${seconds}秒`;
   }
+
+  /**
+   * 获取运行时间的毫秒差
+   * @param {Date|number} startTime - 开始时间
+   * @param {Date|number} endTime - 结束时间（默认为当前时间）
+   * @returns {number} 时间差（毫秒）
+   */
+  static getElapsedMs(startTime, endTime = new Date()) {
+    const start = startTime instanceof Date ? startTime : new Date(startTime);
+    const end = endTime instanceof Date ? endTime : new Date(endTime);
+    return end - start;
+  }
   
   /**
    * 创建延迟Promise
